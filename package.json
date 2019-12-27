@@ -1,0 +1,17 @@
+{
+  "name": "@tybys/bommon",
+  "version": "2.0.0",
+  "description": "CommonJS in Browser",
+  "scripts": {
+    "test": "echo hello"
+  },
+  "author": "toyobayashi",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/toyobayashi/bommon.git"
+  },
+  "license": "MIT",
+  "keywords": [
+    "cjs"
+  ]
+}

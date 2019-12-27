@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>bommon.minimal</title>
+</head>
+<body>
+  <script src="../bommon.minimal.js"></script>
+  <script>
+    bommon.register('main', function (module, exports, require) {
+      document.write('main starting<br/>');
+      var a = require('a');
+      var b = require('b');
+      document.write('in main, a.done = ' + a.done + ', b.done = ' + b.done + '<br/>');
+    });
+
+    bommon.register('a', function (module, exports, require) {
+      document.write('a starting<br/>');
+      exports.done = false;
+      var b = require('b');
+      document.write('in a, b.done = ' + b.done + '<br/>');
+      exports.done = true;
+      document.write('a done<br/>');
+    });
+
+    bommon.register('b', function (module, exports, require) {
+      document.write('b starting<br/>');
+      exports.done = false;
+      var a = require('a');
+      document.write('in b, a.done = ' + a.done + '<br/>');
+      exports.done = true;
+      document.write('b done<br/>');
+    });
+
+    bommon.runAsMain('main');
+  </script>
+</body>
+</html>
