@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>querystring</title>
+</head>
+<body>
+  <script src="../bommon.js"></script>
+  <script src="../lib/querystring.min.js"></script>
+  <script>
+    bommon.register('@namespace/main', function (module, exports, require) {
+      var querystring = require('querystring');
+      var a, b;
+      console.log(a = querystring.stringify({ foo: 'bar', baz: ['qux', 'quux'], corge: '' }));
+      console.log(b = querystring.stringify({ foo: 'bar', baz: 'qux' }, ';', ':'));
+      console.log(querystring.parse(a));
+      console.log(querystring.parse(b));
+      var s = '?abc=123&xyz=789&Chinese=中文';
+      var es = querystring.escape(s);
+      console.log(es);
+      console.log(querystring.unescapeBuffer(es));
+      console.log(querystring.unescape(es));
+    });
+
+    bommon.runAsMain('@namespace/main');
+  </script>
+</body>
+</html>

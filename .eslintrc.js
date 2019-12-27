@@ -8,7 +8,9 @@ module.exports = {
     semi: [2, 'always'],
     quotes: [2, 'single'],
     eqeqeq: [2, 'smart'],
-    indent: [2, 2],
+    indent: [2, 2, {
+      SwitchCase: 1
+    }],
     'eol-last': [2],
     'no-tabs': [2],
     'key-spacing': [2],
