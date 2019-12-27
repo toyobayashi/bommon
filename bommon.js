@@ -1,4 +1,4 @@
-(function (global) {
+!function (global) {
   'use strict';
   var version = '2.0.0';
   var registeredModules = {};
@@ -166,4 +166,4 @@
     dynamicImport: createDynamicImport(anonymousModule),
     getVersion: getVersion
   };
-})(window);
+}(window);

@@ -3,7 +3,7 @@
   "version": "2.0.0",
   "description": "CommonJS in Browser",
   "scripts": {
-    "test": "echo hello"
+    "build": "uglifyjs bommon.js -m -o bommon.min.js && uglifyjs bommon.minimal.js -m -o bommon.minimal.min.js"
   },
   "author": "toyobayashi",
   "repository": {
@@ -13,5 +13,8 @@
   "license": "MIT",
   "keywords": [
     "cjs"
-  ]
+  ],
+  "devDependencies": {
+    "uglify-js": "^3.7.3"
+  }
 }

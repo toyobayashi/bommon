@@ -1,4 +1,4 @@
-(function (global) {
+!function (global) {
   'use strict';
   var version = '1.0.0';
   var registeredModules = {};
@@ -70,4 +70,4 @@
     runAsMain: runAsMain,
     getVersion: getVersion
   };
-})(window);
+}(window);
