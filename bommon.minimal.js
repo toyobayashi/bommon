@@ -58,7 +58,7 @@
   function runAsMain(moduleId) {
     assertModuleId(moduleId);
     if (!mainModule) {
-      mainModule = true
+      mainModule = true;
       require(moduleId);
     } else {
       throw new Error('Call runAsMain only once.');
