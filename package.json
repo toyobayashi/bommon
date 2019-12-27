@@ -3,7 +3,8 @@
   "version": "2.0.0",
   "description": "CommonJS in Browser",
   "scripts": {
-    "build": "uglifyjs bommon.js -m -o bommon.min.js && uglifyjs bommon.minimal.js -m -o bommon.minimal.min.js"
+    "build": "uglifyjs bommon.js -m -o bommon.min.js && uglifyjs bommon.minimal.js -m -o bommon.minimal.min.js",
+    "build:path": "uglifyjs lib/path.js -m -o lib/path.min.js"
   },
   "author": "toyobayashi",
   "repository": {

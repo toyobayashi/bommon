@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>path</title>
+</head>
+<body>
+  <script src="../bommon.js"></script>
+  <script src="../lib/path.min.js"></script>
+  <script>
+    bommon.register('@namespace/main', function (module, exports, require) {
+      var path = require('path');
+      console.log(path.basename('C:\\temp\\myfile.html'));
+      console.log(path.win32.basename('C:\\temp\\myfile.html'));
+      console.log(path.posix.basename('/tmp/myfile.html'));
+
+      console.log(path.basename('/foo/bar/baz/asdf/quux.html'));
+      console.log(path.basename('/foo/bar/baz/asdf/quux.html', '.html'));
+
+      console.log(path.dirname('/foo/bar/baz/asdf/quux'));
+
+      console.log(path.extname('index.html'));
+      console.log(path.extname('index.coffee.md'));
+      console.log(path.extname('index.'));
+      console.log(path.extname('index'));
+      console.log(path.extname('.index'));
+      console.log(path.extname('.index.md'));
+
+      console.log(path.format({
+        root: '/ignored',
+        dir: '/home/user/dir',
+        base: 'file.txt'
+      }));
+      console.log(path.format({
+        root: '/',
+        base: 'file.txt',
+        ext: 'ignored'
+      }));
+      console.log(path.format({
+        root: '/',
+        name: 'file',
+        ext: '.txt'
+      }));
+      console.log(path.win32.format({
+        dir: 'C:\\path\\dir',
+        base: 'file.txt'
+      }));
+
+      console.log(path.isAbsolute('/foo/bar')); // true
+      console.log(path.isAbsolute('/baz/..'));  // true
+      console.log(path.isAbsolute('qux/'));     // false
+      console.log(path.isAbsolute('.'));        // false
+      console.log(path.win32.isAbsolute('//server'));    // true
+      console.log(path.win32.isAbsolute('\\\\server'));  // true
+      console.log(path.win32.isAbsolute('C:/foo/..'));   // true
+      console.log(path.win32.isAbsolute('C:\\foo\\..')); // true
+      console.log(path.win32.isAbsolute('bar\\baz'));    // false
+      console.log(path.win32.isAbsolute('bar/baz'));     // false
+      console.log(path.win32.isAbsolute('.'));           // false
+      
+      console.log(path.join('/foo', 'bar', 'baz/asdf', 'quux', '..'));
+      
+      console.log(path.normalize('/foo/bar//baz/asdf/quux/..'));
+      console.log(path.win32.normalize('C:\\temp\\\\foo\\bar\\..\\'));
+      console.log(path.win32.normalize('C:////temp\\\\/\\/\\/foo/bar'));
+
+      console.log(path.parse('/home/user/dir/file.txt'));
+      console.log(path.win32.parse('C:\\path\\dir\\file.txt'));
+
+      console.log(path.relative('/data/orandea/test/aaa', '/data/orandea/impl/bbb'));
+      console.log(path.win32.relative('C:\\orandea\\test\\aaa', 'C:\\orandea\\impl\\bbb'));
+      console.log(path.resolve('/foo/bar', './baz'));
+      console.log(path.resolve('/foo/bar', '/tmp/file/'));
+      console.log(path.resolve('wwwroot', 'static_files/png/', '../gif/image.gif'));
+    });
+
+    bommon.runAsMain('@namespace/main');
+  </script>
+</body>
+</html>
