@@ -22,8 +22,8 @@
   }
 
   function getPromiseConstructor() {
-    if (typeof window.Promise !== 'function') throw new Error('Your browser does not support Promise.');
-    return window.Promise;
+    if (typeof global.Promise !== 'function') throw new Error('Your browser does not support Promise.');
+    return global.Promise;
   }
 
   function loadScript(src, cache) {
