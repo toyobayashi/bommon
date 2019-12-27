@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>path</title>
+</head>
+<body>
+  <script src="../bommon.js"></script>
+  <script src="../lib/events.min.js"></script>
+  <script>
+    bommon.register('@namespace/main', function (module, exports, require) {
+      var EventEmitter = require('events');
+      var myEmitter = new EventEmitter();
+
+      // 第一个监听器。
+      myEmitter.on('event', function firstListener() {
+        console.log('第一个监听器');
+      });
+      // 第二个监听器。
+      myEmitter.on('event', function secondListener(arg1, arg2) {
+        console.log('第二个监听器中的事件有参数 ' + arg1 + '、' + arg2);
+      });
+      // 第三个监听器
+      myEmitter.on('event', function thirdListener() {
+        var parameters = Array.prototype.join.call(arguments, ', ');
+        console.log('第三个监听器中的事件有参数 ' + parameters);
+      });
+
+      console.log(myEmitter.listeners('event'));
+
+      myEmitter.once('foo', function () { console.log('a'); });
+      myEmitter.prependOnceListener('foo', function () { console.log('b'); });
+
+      console.log(myEmitter.eventNames());
+
+      myEmitter.emit('foo');
+      myEmitter.emit('foo');
+
+      console.log(myEmitter.eventNames());
+
+      myEmitter.emit('event', 1, 2, 3, 4, 5);
+
+      // Prints:
+      // [
+      //   [Function: firstListener],
+      //   [Function: secondListener],
+      //   [Function: thirdListener]
+      // ]
+      // 第一个监听器
+      // 第二个监听器中的事件有参数 1、2
+      // 第三个监听器中的事件有参数 1, 2, 3, 4, 5
+    });
+
+    bommon.runAsMain('@namespace/main');
+  </script>
+</body>
+</html>

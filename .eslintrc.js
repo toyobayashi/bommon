@@ -30,7 +30,8 @@ module.exports = {
       asyncArrow: 'always'
     }],
     'comma-spacing': [2],
-    'no-unused-vars': [1, { argsIgnorePattern: '(^_)|module|exports|require' }]
+    'no-unused-vars': [1, { argsIgnorePattern: '(^_)|module|exports|require' }],
+    'no-empty': 0
   },
   globals: {
     Promise: false
