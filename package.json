@@ -6,7 +6,8 @@
     "build": "uglifyjs bommon.js --ie8 -m -o bommon.min.js && uglifyjs bommon.minimal.js --ie8 -m -o bommon.minimal.min.js",
     "build:path": "uglifyjs lib/path.js --ie8 -m -o lib/path.min.js",
     "build:events": "uglifyjs lib/events.js --ie8 -m -o lib/events.min.js",
-    "build:querystring": "uglifyjs lib/querystring.js --ie8 -m -o lib/querystring.min.js"
+    "build:querystring": "uglifyjs lib/querystring.js --ie8 -m -o lib/querystring.min.js",
+    "build:buffer": "uglifyjs lib/buffer.js --ie8 -m -o lib/buffer.min.js"
   },
   "author": "toyobayashi",
   "repository": {
