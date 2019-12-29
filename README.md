@@ -146,6 +146,7 @@ declare type BommonRequireFunction = {
 * `querystring.js` [nodejs/node v12.14.0 lib/querystring.js](https://github.com/nodejs/node/blob/v12.14.0/lib/querystring.js)
 * `buffer.js` [feross/buffer v4.9.2 index.js](https://github.com/feross/buffer/blob/v4.9.2/index.js)
 * `buffer-modern.js` [feross/buffer v5.4.3 index.js](https://github.com/feross/buffer/blob/v5.4.3/index.js)
+* `timers` webpack polyfill
 
 Example:
 

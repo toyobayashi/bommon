@@ -4,7 +4,8 @@
   "description": "CommonJS in Browser",
   "scripts": {
     "build": "node ./scripts/build.js",
-    "webpack": "webpack --config ./test/webpack/webpack.config.js"
+    "webpack": "webpack --config ./test/webpack/webpack.config.js",
+    "webpack:p": "node ./test/webpack/webpack.polyfill.js"
   },
   "author": "toyobayashi",
   "repository": {
