@@ -139,6 +139,40 @@ declare type BommonRequireFunction = {
 }
 ```
 
+## Node.js module implementions (UMD)
+
+* `path.js` [nodejs/node v12.14.0 lib/path.js](https://github.com/nodejs/node/blob/v12.14.0/lib/path.js)
+* `events.js` [nodejs/node v12.14.0 lib/events.js](https://github.com/nodejs/node/blob/v12.14.0/lib/events.js)
+* `querystring.js` [nodejs/node v12.14.0 lib/querystring.js](https://github.com/nodejs/node/blob/v12.14.0/lib/querystring.js)
+* `buffer.js` [feross/buffer v4.9.2 index.js](https://github.com/feross/buffer/blob/v4.9.2/index.js)
+* `buffer-modern.js` [feross/buffer v5.4.3 index.js](https://github.com/feross/buffer/blob/v5.4.3/index.js)
+
+Example:
+
+``` html
+<script src="lib/path.js"></script>
+<script>
+  console.log(nodejs.path);
+  console.log(nodejs.path.join('/a', 'b/c'));
+</script>
+```
+
+Use bommon:
+
+``` html
+<script src="bommon.js"></script>
+<script src="lib/path.js"></script>
+```
+
+``` js
+bommon.register('main', function (module, exports, require) {
+  var path = require('path');
+  console.log(path);
+  console.log(path.join('/a', 'b/c'));
+});
+bommon.runAsMain('main');
+```
+
 ## License
 
 * MIT

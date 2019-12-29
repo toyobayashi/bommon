@@ -7,7 +7,8 @@
     "build:path": "uglifyjs lib/path.js --ie8 -m -o lib/path.min.js",
     "build:events": "uglifyjs lib/events.js --ie8 -m -o lib/events.min.js",
     "build:querystring": "uglifyjs lib/querystring.js --ie8 -m -o lib/querystring.min.js",
-    "build:buffer": "uglifyjs lib/buffer.js --ie8 -m -o lib/buffer.min.js"
+    "build:buffer": "uglifyjs lib/buffer.js --ie8 -m -o lib/buffer.min.js",
+    "build:buffer-modern": "uglifyjs lib/buffer-modern.js -m -o lib/buffer-modern.min.js"
   },
   "author": "toyobayashi",
   "repository": {
