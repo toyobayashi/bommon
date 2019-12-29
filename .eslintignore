@@ -1,3 +1,4 @@
 node_modules
 /test
 *.min.js
+/scripts
