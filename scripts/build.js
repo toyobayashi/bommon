@@ -5,6 +5,7 @@ const UglifyJS = require('uglify-js')
 const lib = fs.readdirSync(path.join(__dirname, '../lib'))
 
 const list = []
+const concatList = []
 
 lib.forEach((item) => {
   if (/\.min\.js$/.test(item)) return
@@ -14,6 +15,8 @@ lib.forEach((item) => {
     list.push({ src: target, options: createOptions() })
   } else {
     list.push({ src: target, options: createOptions(true) })
+    const minjs = path.join(path.dirname(target), path.basename(target, '.js') + '.min.js')
+    concatList.push(minjs)
   }
 })
 
@@ -29,6 +32,13 @@ list.forEach((item) => {
   fs.writeFileSync(path.join(path.dirname(item.src), path.basename(item.src, '.js') + '.min.js'), res.code, 'utf8')
   console.log(item.src)
 })
+
+let code = ''
+concatList.forEach(minjs => {
+  code += fs.readFileSync(minjs, 'utf8')
+})
+
+fs.writeFileSync(path.join(__dirname, '../lib/nodejs.min.js'), code, 'utf8')
 
 function createOptions (ie8) {
   return {
