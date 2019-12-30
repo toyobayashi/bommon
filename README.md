@@ -148,6 +148,7 @@ declare type BommonRequireFunction = {
 * `buffer-modern.js` [feross/buffer v5.4.3 index.js](https://github.com/feross/buffer/blob/v5.4.3/index.js)
 * `timers` webpack polyfill
 * `url` webpack polyfill
+* `util` webpack polyfill
 
 Example:
 
