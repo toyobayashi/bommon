@@ -1,6 +1,7 @@
 const webpack = require('webpack')
 const path = require('path')
 const fs = require('fs')
+const MyUMDPlugin = require('./MyUMDPlugin.js')
 
 const files = {
   'console': 'module.exports = require("console")',
@@ -21,14 +22,16 @@ Object.keys(files).forEach((name) => {
 const config = {
   mode: 'production',
   devtool: 'none',
+  target: 'web',
   entry,
   output: {
     path: path.join(__dirname, './polyfill'),
-    filename: '[name].polyfill.js',
-    library: '[name]',
-    libraryTarget: 'umd'
+    filename: '[name].polyfill.js'
   },
   node,
+  plugins: [
+    new MyUMDPlugin()
+  ],
   optimization: {
     minimize: false
   }
